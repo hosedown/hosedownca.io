@@ -1,68 +1,222 @@
-body {
-    font-family: Arial, sans-serif;
+/* --- 1. CORE VARIABLES & RESET --- */
+:root {
+    --navigation_height: 80px;
+    --primary-gold: #ffb703;
+    --dark-gold: #fb8500;
+    --navy: #023047;
+    --accent-blue: #00b4d8;
+    --bg-light: #f8fbfe;
+    --text-main: #333;
+    --white: #ffffff; /* Added missing variable */
+    --transition-speed: 0.8s;
+    --background-color: #fbf2e9;
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    background: #f5f7f9;
-    color: #222;
-    text-align: center;
-}
-
-header {
-    background: linear-gradient(135deg, #0077b6, #00b4d8);
-    color: white;
-    padding: 60px 20px;
-}
-
-h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-section {
-    padding: 40px 20px;
-}
-
-.about ul {
-    list-style: none;
     padding: 0;
 }
 
-.about li {
-    margin: 10px 0;
+html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    overflow: hidden; 
 }
 
-.services {
-    background: #ffffff;
+/* --- 2. SNAP SCROLL CONTAINER --- */
+#main-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
-.card {
-    background: #e9f5f9;
-    margin: 15px auto;
-    padding: 20px;
-    max-width: 300px;
-    border-radius: 8px;
+.snap-section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--navigation_height); 
+    opacity: 0;
+    background-color: var(--background-color);
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
-.pricing {
-    background: #f0f4f8;
+.snap-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
+
+/* --- 3. STICKY NAVIGATION --- */
+#topNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navigation_height);
+    background: var(--navy);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0; /* Side spacing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* The Logo Link in the corner */
+.logo-link {
+    display: block;
+    height: var(--navigation_height); /* Slightly smaller than nav height for padding */
+    width: var(--navigation_height);  /* Adjust this width to fit your specific logo shape */
+    background-image: url('images/mini_logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.nav-content {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 50px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--background-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-gold);
+}
+
+/* Underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-gold);
+    transition: width 0.3s;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--accent-blue);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap; /* Keeps the text on one line */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.2);
+}
+
+.nav-cta:hover {
+    background: #0096b4;
+    transform: scale(1.05);
+}
+
+/* --- 4. HERO & CONTENT --- */
+.hero-content {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-visual {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.hero-logo {
+    width: 200px;
+    margin-bottom: -30px;
+    z-index: 5;
+    position: relative;
+}
+
+.slideshow {
+    width: 85vw;
+    max-width: 500px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 6px solid white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.slide {
+    position: absolute;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active { opacity: 1; }
 
 .cta {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #ffb703;
-    color: black;
+    background: var(--primary-gold);
+    color: var(--navy);
+    padding: 15px 30px;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .cta:hover {
-    background: #fb8500;
+    background: var(--dark-gold);
+    transform: translateY(-2px);
 }
 
-footer {
-    background: #222;
+.cta.secondary {
+    background: var(--navy);
     color: white;
-    padding: 20px;
+    margin-left: 10px;
+}
+
+/* Benefits, Cards, and Gallery */
+.benefit-list { list-style: none; text-align: left; }
+.benefit-list li { margin: 15px 0; font-size: 1.1rem; }
+.card-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.card { background: white; padding: 30px; border-radius: 15px; width: 250px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.gallery-grid img { width: 100%; border-radius: 10px; }
+.price-tag { font-size: 3rem; font-weight: 800; color: var(--navy); }
+
+footer { background: var(--navy); color: white; padding: 20px; text-align: center; }
+
+@media (max-width: 768px) {
+    /*.nav-links { display: none; }  Standard behavior for mobile */
+    .hero-text h2 { font-size: 1.8rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
 }

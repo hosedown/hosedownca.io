@@ -6,52 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>HoseDown Sanitation</h1>
-    <p>Professional Trash Bin Cleaning in Chino, Chino Hills & Eastvale</p>
-    <a class="cta" href="tel:+1YOURNUMBER">Call Now</a>
-</header>
+<nav id="topNav">
+    <a href="#home" class="logo-link"></a>
 
-<section class="about">
-    <h2>Why Clean Your Trash Bins?</h2>
-    <ul>
-        <li>Eliminate foul odors</li>
-        <li>Remove bacteria & maggots</li>
-        <li>Keep your garage fresh</li>
-        <li>Eco-friendly washing</li>
-    </ul>
-</section>
-
-<section class="services">
-    <h2>Our Services</h2>
-    <div class="card">
-        <h3>One-Time Cleaning</h3>
-        <p>Deep wash, disinfect, deodorize.</p>
+    <div class="nav-content">
+        <div class="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#gallery" class="nav-link">Gallery</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <a href="tel:+1YOURNUMBER" class="nav-cta">Call Now</a>
     </div>
-    <div class="card">
-        <h3>Monthly Service</h3>
-        <p>Keep your bins clean year-round.</p>
-    </div>
-</section>
+</nav>
 
-<section class="pricing">
-    <h2>Simple Pricing</h2>
-    <p>$25 per bin (1-time)</p>
-    <p>Discount for multiple bins or monthly plans</p>
-</section>
+<main id="main-container">
+    <section id="home" class="snap-section">
+        <div class="hero-content">
+            <div class="hero-visual">
+                <img src="images/logo.png" alt="HoseDown Sanitation" class="hero-logo">
+                <div class="slideshow">
+                    <img class="slide active" src="images/bin_before.jpg" alt="Before">
+                    <img class="slide" src="images/bin_after.jpg" alt="After">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h2>Professional Trash Bin Sanitizing</h2>
+                <p>We stop the stink and kill the germs.</p>
+                <a class="cta" href="#services">See Our Plans</a>
+            </div>
+        </div>
+    </section>
 
-<section class="contact">
-    <h2>Get a Free Quote</h2>
-    <p>Text us your address and number of bins.</p>
-    <a class="cta" href="sms:+1YOURNUMBER">Text Now</a>
-</section>
+    <section id="about" class="snap-section">
+        <div class="content-wrapper">
+            <h2>Why Clean Your Trash Bins?</h2>
+            <ul class="benefit-list">
+                <li>Eliminate foul odors</li>
+                <li>Remove bacteria & maggots</li>
+                <li>Keep your garage fresh</li>
+                <li>Eco-friendly washing</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="services" class="snap-section">
+        <div class="content-wrapper">
+            <h2>Our Services</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>One-Time Cleaning</h3>
+                    <p>Deep wash, disinfect, deodorize.</p>
+                </div>
+                <div class="card">
+                    <h3>Monthly Service</h3>
+                    <p>Keep your bins clean year-round.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="snap-section">
+        <div class="content-wrapper">
+            <h2>Simple Pricing</h2>
+            <p class="price-tag">$25 per bin (one-time)</p>
+            <p>Discounts for recurring monthly plans.</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="snap-section">
+        <div class="content-wrapper">
+            <h2>Before & After</h2>
+            <div class="gallery-grid">
+                <img src="images/bin_before.jpg" alt="Before">
+                <img src="images/bin_after.jpg" alt="After">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="snap-section">
+        <div class="content-wrapper">
+            <h2>Get a Free Quote</h2>
+            <p>Text us your address and number of bins.</p>
+            <div class="cta-group">
+                <a class="cta" href="sms:+1YOURNUMBER">Text Now</a>
+                <a class="cta secondary" href="tel:+1YOURNUMBER">Call Now</a>
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer>
     <p>© 2026 HoseDown Sanitation LLC</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
